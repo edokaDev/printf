@@ -18,6 +18,14 @@ void print_specifier(va_list aq, char spec, int *len)
 	i = *len;
 	switch (spec)
 	{
+		case 'd':
+			j = va_arg(aq, int);
+			print_int(j, len);
+			break;
+		case 'i':
+			j = va_arg(aq, int);
+			print_int(j, len);
+			break;
 		case 'c':
 			c = va_arg(aq, int);
 			_putchar(c);
