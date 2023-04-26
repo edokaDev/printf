@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	op_t specifiers[] = {
 		{'c', handle_char},
 		{'s', handle_string},
+		{'i', handle_int},
+		{'d', handle_int},
 		{'\0', NULL}
 	};
 

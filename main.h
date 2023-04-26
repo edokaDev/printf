@@ -20,5 +20,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 void handle_char(va_list, int *);
 void handle_string(va_list, int *);
+void handle_int(va_list, int *);
+void print_int(int num, int *len);
 
 #endif /* PRINT_F */
