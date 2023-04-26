@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 		{'s', handle_string},
 		{'i', handle_int},
 		{'d', handle_int},
+		{'%', handle_percent},
 		{'\0', NULL}
 	};
 

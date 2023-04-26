@@ -22,5 +22,6 @@ void handle_char(va_list, int *);
 void handle_string(va_list, int *);
 void handle_int(va_list, int *);
 void print_int(int num, int *len);
+void handle_percent(va_list, int *);
 
 #endif /* PRINT_F */
