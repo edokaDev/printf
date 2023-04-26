@@ -1,11 +1,23 @@
 #ifndef PRINT_F
 #define PRINT_F
+
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
+
+/**
+ * struct op - struct op
+ * @s: t - flag for data type
+ * @f: function - associated function
+ */
+typedef struct op
+{
+	char s;
+	void (*f)(va_list, int *);
+} op_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_specifier(va_list aq, char spec, int *len);
-void print_int(int num, int *len);
+void handle_char(va_list, int *);
 
 #endif /* PRINT_F */
