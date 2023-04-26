@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int i = 0, j, len = 0;
 	op_t specifiers[] = {
 		{'c', handle_char},
+		{'s', handle_string},
 		{'\0', NULL}
 	};
 

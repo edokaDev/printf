@@ -19,5 +19,6 @@ typedef struct op
 int _putchar(char c);
 int _printf(const char *format, ...);
 void handle_char(va_list, int *);
+void handle_string(va_list, int *);
 
 #endif /* PRINT_F */
