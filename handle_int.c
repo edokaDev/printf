@@ -13,5 +13,5 @@ int handle_int(va_list aq, char *buffer, int b_count)
 {
 	int j = va_arg(aq, int);
 
-	return (print_int(j, buffer, b_count));
+	return (parse_int(j, buffer, b_count));
 }
