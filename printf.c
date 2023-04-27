@@ -10,7 +10,8 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, j, len = 0;
+	int i = 0, j, b_count = 0;
+	char buffer[2000];
 	op_t specifiers[] = {
 		{'c', handle_char},
 		{'s', handle_string},
@@ -33,16 +34,17 @@ int _printf(const char *format, ...)
 			{
 				if (specifiers[j].s == format[i])
 				{
-					specifiers[j].f(ap, &len);
+					b_count = specifiers[j].f(ap, buffer, b_count);
 					break;
 				}
 			}
 			i++; /*skip the format specifier*/
 		}
-		len++;
-		_putchar(format[i]);
+		buffer[b_count] = format[i];
+		b_count++;
 		i++;
 	}
+	print_buffer(buffer, b_count);
 	va_end(ap);
-	return (len);
+	return (b_count);
 }

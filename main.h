@@ -13,15 +13,15 @@
 typedef struct op
 {
 	char s;
-	void (*f)(va_list, int *);
+	int (*f)(va_list ap, char *buffer,  int b_count);
 } op_t;
 
-int _putchar(char c);
 int _printf(const char *format, ...);
-void handle_char(va_list, int *);
-void handle_string(va_list, int *);
-void handle_int(va_list, int *);
-void print_int(int num, int *len);
-void handle_percent(va_list, int *);
+int handle_char(va_list ap, char *buffer,  int b_count);
+int handle_string(va_list ap, char *buffer,  int b_count);
+int handle_int(va_list ap, char *buffer,  int b_count);
+int parse_int(int num, char *buffer,  int b_count);
+int handle_percent(va_list ap, char *buffer,  int b_count);
+int print_buffer(char *buffer, int b_count);
 
 #endif /* PRINT_F */

@@ -1,21 +1,20 @@
 #include "main.h"
 
 /**
- * handle_char - a function that prints character(s)
- * according to the %c format specifier
- * @aq: va_list
- * @len: pointer to the length of the buffer
+ * handle_char - a function that handles the %c format specifier
+ * It adds the char to the buffer.
+ * @ap: va_list
+ * @buffer: pointer to the buffer
+ * @b_count: current index of hte buffer
  *
- * Return: nothing
+ * Return: the next buffer int i.e the b_count
 */
-void handle_char(va_list aq, int *len)
+int handle_char(va_list ap, char *buffer,  int b_count)
 {
-	char c;
-	int i;
+	int i = b_count;
 
-	i = *len;
-	c = va_arg(aq, int);
-	_putchar(c);
+	buffer[i] = va_arg(ap, int);
 	i++;
-	*len = i;
+
+	return (i);
 }

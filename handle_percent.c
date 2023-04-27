@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * handle_percent - a function that prints character(s)
- * according to the %% format specifier
- * @aq: va_list
- * @len: pointer to the length of the buffer
+ * handle_percent - a function that handles the %% format specifier
+ * It add % to the buffer.
+ * @ap: va_list
+ * @buffer: pointer to the buffer
+ * @b_count: current index of the buffer
  *
- * Return: nothing
+ * Return: the next buffer int i.e the b_count
 */
-void handle_percent(va_list aq, int *len)
+int handle_percent(va_list ap, char *buffer,  int b_count)
 {
-	int i;
+	int i = b_count;
 
-	i = *len;
-	va_arg(aq, int);
-	_putchar('%');
-	i++;
-	*len = i;
+	va_arg(ap, int);
+	buffer[i++] = '%';
+
+	return (i);
 }

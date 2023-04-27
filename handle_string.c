@@ -3,25 +3,23 @@
 /**
  * handle_string - a function that prints character(s)
  * according to the %s format specifier
- * @aq: va_list
- * @len: pointer to the length of the buffer
+ * @ap: va_list
+ * @buffer: pointer to the buffer
+ * @b_count: current index of the buffer
  *
- * Return: nothing
+ * Return: the next buffer int i.e the b_count
 */
-void handle_string(va_list aq, int *len)
+int handle_string(va_list ap, char *buffer,  int b_count)
 {
 	char *s;
-	int i, j;
+	int i = b_count, j;
 
-	i = *len;
-
-	s = va_arg(aq, char *);
+	s = va_arg(ap, char *);
 	j = 0;
 	while (s[j] != '\0')
 	{
-		_putchar(s[j]);
-		i++;
+		buffer[i++] = s[j];
 		j++;
 	}
-	*len = i;
+	return (i);
 }
