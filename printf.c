@@ -10,41 +10,40 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, j, b_count = 0;
+	int i = 0, j, b_count = 0, pre_b = 0;
 	char buffer[2000];
 	op_t specifiers[] = {
-		{'c', handle_char},
-		{'s', handle_string},
-		{'i', handle_int},
-		{'d', handle_int},
-		{'%', handle_percent},
-		{'\0', NULL}
+		{'c', handle_char}, {'s', handle_string}, {'i', handle_int},
+		{'d', handle_int}, {'%', handle_percent}, {'\0', NULL}
 	};
 
 	if (!format)
 		return (-1);
-
 	va_start(ap, format);
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			i++; /*skip the % sign*/
+			i++, pre_b = b_count;
 			for (j = 0; specifiers[j].s != '\0'; j++)
 			{
+				if (format[i] == '\0')
+					break;
 				if (specifiers[j].s == format[i])
 				{
 					b_count = specifiers[j].f(ap, buffer, b_count);
 					break;
 				}
 			}
-			i++; /*skip the format specifier*/
+			if (b_count == pre_b && format[i])
+				i--, buffer[b_count] = format[i], b_count++;
 		}
-		buffer[b_count] = format[i];
-		b_count++;
+		else
+			buffer[b_count] = format[i], b_count++;
 		i++;
 	}
-	print_buffer(buffer, b_count);
 	va_end(ap);
+	buffer[b_count] = '\0';
+	print_buffer(buffer, b_count);
 	return (b_count);
 }
