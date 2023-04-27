@@ -16,10 +16,14 @@ int handle_string(va_list ap, char *buffer,  int b_count)
 
 	s = va_arg(ap, char *);
 	j = 0;
+	if (s == NULL)
+		s = "(null)";
+
+	if (s[0] == '\0')
+		buffer[i++] = '\0';
+
 	while (s[j] != '\0')
-	{
-		buffer[i++] = s[j];
-		j++;
-	}
+		buffer[i++] = s[j++];
+
 	return (i);
 }
