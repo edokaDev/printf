@@ -13,7 +13,7 @@ int handle_bin(va_list ap, char *buffer,  int b_count)
 {
 	int i = b_count, b = 0, j;
 	int num = va_arg(ap, int);
-	char bin[64];
+	char bin[512];
 
 	convert_binary(bin, &b, num);
 	j = b - 1;
