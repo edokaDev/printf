@@ -23,5 +23,7 @@ int handle_int(va_list ap, char *buffer,  int b_count);
 int parse_int(int num, char *buffer,  int b_count);
 int handle_percent(va_list ap, char *buffer,  int b_count);
 int print_buffer(char *buffer, int b_count);
+int handle_bin(va_list ap, char *buffer,  int b_count);
+void convert_binary(char *bin, int *b, int n);
 
 #endif /* PRINT_F */

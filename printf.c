@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 	char buffer[2000];
 	op_t specifiers[] = {
 		{'c', handle_char}, {'s', handle_string}, {'i', handle_int},
-		{'d', handle_int}, {'%', handle_percent}, {'\0', NULL}
+		{'d', handle_int}, {'%', handle_percent}, {'b', handle_bin},
+		{'\0', NULL}
 	};
 
 	if (!format)
