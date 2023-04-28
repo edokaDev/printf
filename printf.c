@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i = 0, j, b_count = 0, pre_b = 0;
-	char buffer[2000];
+	char buffer[1024];
 	op_t specifiers[] = {
 		{'c', handle_char}, {'s', handle_string}, {'i', handle_int},
 		{'d', handle_int}, {'%', handle_percent}, {'b', handle_bin},
